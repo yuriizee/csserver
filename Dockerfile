@@ -1,6 +1,6 @@
 FROM cs16ds/server:latest
 
-RUN apt update && apt install -y unzip curl
+RUN apt update && apt upgrade -y && apt install -y unzip curl
 
 # Install bots
 ADD addons/podbot_full_V3B22.zip /tmp/podbot.zip
