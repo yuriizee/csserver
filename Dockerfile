@@ -16,6 +16,6 @@ RUN tar -xvf /tmp/webmod.tar.gz -C /opt/hlds/cstrike/addons && \
     rm -f /tmp/webmod.tar.gz && \
     echo linux addons/w/dlls/w_mm_i386.so >> /opt/hlds/cstrike/addons/metamod/plugins.ini && \
     echo webmod_pass.amxx >> /opt/hlds/cstrike/addons/amxmodx/configs/plugins.ini && \
-    echo webmod_adminpass "supercow" >> /opt/hlds/cstrike/server.cfg
+    echo \webmod_adminpass "supercow" >> /opt/hlds/cstrike/server.cfg
 
 ENTRYPOINT ["/bin/hlds_run.sh"]
