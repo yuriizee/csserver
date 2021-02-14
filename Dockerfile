@@ -1,11 +1,11 @@
 FROM cs16ds/server:latest
 
+RUN apt update && apt install -y unzip curl
+
 # Install bots
-RUN mkdir -p /opt/hlds/cstrike/addons/bots && \
-    echo linux addons/bots/csbot_enable_mm.so >> /opt/hlds/cstrike/addons/metamod/plugins.ini && \
-    echo -e '\nbot_difficulty "3"' >> /opt/hlds/cstrike/server.cfg && \
-    echo 'bot_quota "5"' >> /opt/hlds/cstrike/server.cfg
-ADD addons/bots/csbot_enable_mm.so /opt/hlds/cstrike/addons/bots/csbot_enable_mm.so
-ADD addons/bots/BotProfile.db /opt/hlds/cstrike/BotProfile.db
+ADD addons/podbot_full_V3B22.zip /tmp/podbot.zip
+RUN unzip /tmp/podbot.zip -d /opt/hlds/cstrike/addons && \
+    rm -f /tmp/podbot.zip && \
+    echo linux addons/podbot/podbot_mm_i386.so >> /opt/hlds/cstrike/addons/metamod/plugins.ini
 
 ENTRYPOINT ["/bin/hlds_run.sh"]
