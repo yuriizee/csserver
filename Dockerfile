@@ -1,6 +1,10 @@
 FROM cs16ds/server:latest
 
-RUN apt-get update && apt-get --allow-unauthenticated --force-yes install -y unzip curl && rm -rf /var/lib/apt/lists/*
+RUN echo 'deb http://ftp.de.debian.org/debian/ jessie main contrib non-free\n \
+deb http://security.debian.org/ jessie/updates main contrib non-free\n \
+deb-src http://ftp.de.debian.org/debian/ jessie main contrib non-free\n' > /etc/apt/sources.list && \
+    apt-get update && apt-get --allow-unauthenticated --force-yes install -y unzip curl && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install bots
 ADD addons/podbot_full_V3B22.zip /tmp/podbot.zip
