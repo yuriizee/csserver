@@ -1,6 +1,6 @@
 FROM cs16ds/server:latest
 
-RUN apt-get update && apt-get install -y --force-yes unzip curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get --allow-unauthenticated --force-yes install -y unzip curl && rm -rf /var/lib/apt/lists/*
 
 # Install bots
 ADD addons/podbot_full_V3B22.zip /tmp/podbot.zip
