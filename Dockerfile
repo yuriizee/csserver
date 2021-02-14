@@ -1,6 +1,10 @@
 FROM cs16ds/server:latest
 
-RUN sed -i '/jessie-updates/d' /etc/apt/sources.list && \
+RUN echo 'deb http://archive.debian.org/debian/ jessie main\n \
+deb-src http://archive.debian.org/debian/ jessie main\n \
+deb-src http://security.debian.org jessie/updates main\n \
+deb-src http://security.debian.org jessie/updates main' > /etc/apt/sources.list && \
+    sed -i '/jessie-updates/d' /etc/apt/sources.list && \
     apt-get update && apt-get --force-yes install -y unzip curl && \
     rm -rf /var/lib/apt/lists/*
 
