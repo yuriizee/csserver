@@ -1,5 +1,8 @@
 FROM cs16ds/server:latest
 
+COPY hlds_run.sh /bin/hlds_run.sh
+RUN chmod +x /bin/hlds_run.sh
+
 # Install bots
 COPY addons/podbot_full_V3B22.tar.gz /tmp/podbot.tar.gz
 RUN tar -xvf /tmp/podbot.tar.gz -C /opt/hlds/cstrike/addons && \
