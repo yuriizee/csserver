@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cs-server:
+    container_name: 'CS_1.6_Server'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '26900:26900/udp'
+      - '27020:27020/udp'
+      - '27015:27015/udp'
+      - '27015:27015'
+    env_file:
+      - .env
