@@ -1,6 +1,7 @@
 FROM cs16ds/server:latest
 
-RUN apt-get update --allow-releaseinfo-change && apt-get --allow-unauthenticated --force-yes install -y unzip curl && \
+RUN sed -i '/jessie-updates/d' /etc/apt/sources.list && \
+    apt-get update && apt-get --force-yes install -y unzip curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Install bots
